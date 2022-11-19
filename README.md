@@ -1,5 +1,8 @@
 # todo2
 
+### live link
+https://e-electra.github.io/todo_page/
+
 ## Project setup
 ```
 npm install
@@ -17,3 +20,5 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
