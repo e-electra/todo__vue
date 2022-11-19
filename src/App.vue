@@ -33,15 +33,6 @@ export default {
         return {
             isVisible: false,
             taskList: [
-                // {
-                //     id: 1, titleValue: 'test', descValue: 'test'
-                // },
-                // {
-                //     id: 2, titleValue: 'test', descValue: 'test'
-                // },
-                // {
-                //     id: 3, titleValue: 'test', descValue: 'test'
-                // }
             ],
         };
     },
