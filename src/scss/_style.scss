@@ -1,0 +1,155 @@
+$white: #ffffff;
+$dark-blue: #252e42;
+$light-orange: #ff8469;
+$grey: #4f5565;
+$dark-grey: #414b62;
+
+$tablet-width: 768px;
+
+$transition-basic: all 150ms ease-in;
+
+@property --x {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 50%;
+}
+
+.page-body,
+a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+img,
+li,
+ol,
+p,
+table,
+ul {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.page-body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    animation: gradient 5s ease-in-out infinite alternate;
+    background: radial-gradient(var(--x) 50% at 50% 50%, #252e42 0%, #161c2e 100%);
+    color: $white;
+    height: 100vh;
+    width: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        --x: 50%;
+    }
+
+    50% {
+        --x: 35%;
+    }
+
+    100% {
+        --x: 50%;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 420px;
+    padding: 120px 0 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: $tablet-width) {
+        max-width: 396px;
+    }
+}
+
+.btn {
+    background-color: $light-orange;
+    color: $white;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    transition: $transition-basic;
+
+    &:hover {
+        background-color: rgba(255, 132, 105, 0.2);
+        transition: $transition-basic;
+    }
+}
+
+.main {
+    position: relative;
+
+    @media (max-width: $tablet-width) {
+        margin: 0 16px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 2px;
+        width: calc(100% - 24px);
+        height: 68px;
+        background: linear-gradient(180deg, #31394d 0%, #091739 100%);
+        border-radius: 20px;
+        transform: rotate(-2.32deg);
+        z-index: 1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 2px;
+        width: calc(100% - 74px);
+        height: 86px;
+        background: linear-gradient(180deg, #4f5565 0%, #000000 53.65%);
+        border-radius: 20px;
+        transform: rotate(-4.48deg);
+    }
+}
+
+
+
+
+
+.footer {
+    &__descr {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        color: $dark-grey;
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+.popup-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 90;
+    top: 0;
+    background-color: #000000;
+    opacity: 0.5;
+}

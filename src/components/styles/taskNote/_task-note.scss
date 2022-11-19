@@ -1,0 +1,176 @@
+.planner {
+    background: $dark-blue;
+    box-shadow: 0px 14px 34px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 0px 40px;
+    height: 540px;
+    position: relative;
+    z-index: 2;
+
+    &::before {
+        content: "";
+        position: absolute;
+        right: 30px;
+        top: 90px;
+        background: linear-gradient(270deg, rgba(37, 46, 66, 0) 0%, #252e42 67.19%);
+        transform: rotate(180deg);
+        width: 12px;
+        height: calc(100% - 100px);
+        z-index: 5;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        right: 30px;
+        background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252e42 67.19%);
+        width: calc(100% - 30px);
+        height: 45px;
+    }
+
+    @media (max-width: $tablet-width) {
+        height: 70vh;
+    }
+
+    &__wrap {
+        padding: 30px 16px 30px 30px;
+
+        @media (max-width: $tablet-width) {
+            padding: 30px 16px 30px 16px;
+            height: 100%;
+        }
+    }
+
+    &__tasks {
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+}
+
+.tasks {
+    max-height: 426px;
+    overflow-y: scroll;
+
+    @media (max-width: $tablet-width) {
+        max-height: calc(100% - 48px);
+        overflow-y: scroll;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        width: 4px;
+        background: $light-orange;
+        border-radius: 10px;
+        height: 50px;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 50px;
+    }
+
+    &__list {
+        margin-right: 10px;
+    }
+}
+
+.planner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        font-size: 28px;
+        line-height: 34px;
+        font-weight: 700;
+
+        @media (max-width: $tablet-width) {
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+
+    &__link {
+        margin-right: 14px;
+    }
+}
+
+.task-item {
+    padding: 9px 0;
+
+    &__descr {
+        transition: $transition-basic;
+    }
+
+    &__title {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        margin-bottom: 3px;
+        word-break: break-word;
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 15px;
+        color: $grey;
+        max-height: 15px;
+        overflow: hidden;
+        word-break: break-word;
+    }
+
+    &__checkbox:checked,
+    &__checkbox:not(:checked) {
+        display: none;
+    }
+
+    &__checkbox:checked + &__descr,
+    &__checkbox:not(:checked) + &__descr {
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+    }
+
+    &__checkbox:checked + &__descr > &__title {
+        color: $grey;
+        transition: $transition-basic;
+    }
+
+    &__checkbox:checked + &__descr:hover > &__title {
+        text-decoration: line-through;
+        color: $white;
+        transition: $transition-basic;
+    }
+
+    &__checkbox:checked + &__descr::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 0;
+        top: calc(50% - 10px);
+        background: $light-orange url(./assets/img/icons/checkmark.svg) no-repeat center center;
+        border-radius: 6px;
+    }
+
+    &__checkbox:not(:checked) + &__descr:hover > &__title {
+        color: $light-orange;
+        transition: $transition-basic;
+    }
+
+    &__checkbox:not(:checked) + &__descr::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 0;
+        top: calc(50% - 10px);
+        background-color: $grey;
+        border-radius: 6px;
+        transition: $transition-basic;
+    }
+
+    &__checkbox:not(:checked) + &__descr:hover::before {
+        background: rgba(255, 132, 105, 0.2);
+        transition: $transition-basic;
+    }
+}
