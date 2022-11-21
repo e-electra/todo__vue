@@ -7,11 +7,8 @@ $dark-grey: #414b62;
 $tablet-width: 768px;
 
 $transition-basic: all 150ms ease-in;
-
-@property --x {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 50%;
+:root {
+    --x: 50%;
 }
 
 .page-body,
@@ -128,10 +125,6 @@ a {
         transform: rotate(-4.48deg);
     }
 }
-
-
-
-
 
 .footer {
     &__descr {
