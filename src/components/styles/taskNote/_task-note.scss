@@ -132,6 +132,7 @@
 
     &__checkbox:checked + &__descr > &__title {
         color: $grey;
+        text-decoration: line-through;
         transition: $transition-basic;
     }
 
